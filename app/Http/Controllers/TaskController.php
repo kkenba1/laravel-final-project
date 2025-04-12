@@ -28,13 +28,15 @@ class TaskController extends Controller
     {
         // Validate user inputs
         $request->validate([
-            'title' => 'required|string|max:255', // Ensure title is not empty and doesn't exceed max length
+            'title' => 'required|string|max:255',
+            'notes' => 'nullable|string' // Ensure title is not empty and doesn't exceed max length
         ]);
 
         try {
             // Create a new task for the authenticated user
             Task::create([
                 'title' => $request->title,
+                'notes' => $request->notes ?? null,
                 'user_id' => Auth::id(), // Associate the task with the logged-in user
             ]);
 
@@ -66,6 +68,7 @@ class TaskController extends Controller
         // Validate user inputs
         $request->validate([
             'title' => 'required|string|max:255',
+            'notes' => 'nullable|string'
         ]);
 
         try {
@@ -76,6 +79,7 @@ class TaskController extends Controller
 
             $task->update([
                 'title' => $request->title,
+                'notes' => $request->notes,
             ]);
 
             // Flash success message

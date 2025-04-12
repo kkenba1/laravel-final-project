@@ -18,9 +18,9 @@
             <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl rounded-2xl p-10 text-white text-center">
                 <h1 class="text-4xl font-bold mb-4 drop-shadow-md">Welcome to Task Manager</h1>
                 <p class="text-lg mb-6">Organize, manage, and stay productive with ease.</p>
-                <a href="{{ url('/task') }}">
+                <a href="{{ url('/tasks') }}">
                     <button class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-100 transition duration-300">
-                        My Task
+                        My Tasks
                     </button>
                 </a>
             </div>

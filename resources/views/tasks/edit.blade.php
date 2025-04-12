@@ -12,12 +12,21 @@
 
             <div class="space-y-4">
                 <div>
-                    <label for="title" class="block text-sm font-medium text-gray-700">Task Title</label>
+                    <label for="title" class="block text-lg font-medium text-gray-700">Task Title</label>
                     <input type="text" id="title" name="title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="{{ old('title', $task->title) }}" required>
                     @error('title')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
                 </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label for="notes" class="block text-lg font-medium text-gray-700">Task Notes (Optional)</label>
+                        <input type="text" id="notes" name="notes" class="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" value="{{ old('notes') }}">
+                        @error('notes')
+                            <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                 <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Update Task

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key to user
             $table->string('title');
+            $table->text('notes')->nullable();
             $table->boolean('completed')->default(false);
             $table->timestamps();
         });

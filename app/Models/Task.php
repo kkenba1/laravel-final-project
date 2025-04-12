@@ -10,7 +10,7 @@ class Task extends Model
     use HasFactory;
 
     // ✅ Add this part to allow mass assignment
-    protected $fillable = ['title', 'user_id'];
+    protected $fillable = ['title', 'notes', 'user_id'];
 
     // ✅ Define the inverse relationship to User
     public function user()
