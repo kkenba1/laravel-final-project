@@ -62,6 +62,17 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task'));
     }
 
+    public function show($id)
+{
+    $task = Task::findOrFail($id);
+
+    if ($task->user_id !== Auth::id()) {
+        return redirect()->route('tasks.index')->with('error', 'Unauthorized access.');
+    }
+
+    return view('tasks.show', compact('task'));
+}
+
     // Update a task in storage
     public function update(Request $request, $id)
     {

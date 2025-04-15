@@ -12,15 +12,32 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <a href="{{ route('tasks.create') }}"
             class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded mb-4 inline-block">+ New Task</a>
 
         <ul class="bg-white rounded-lg shadow-sm divide-y divide-gray-200">
             @forelse ($tasks as $task)
                 <li class="px-4 py-3 hover:bg-gray-50 transition duration-150">
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-800 font-medium">{{ $task->title }}</span>
-                        <div class="flex space-x-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <span class="text-gray-800 font-medium text-lg">{{ $task->title }}</span>
+                        </div>
+                        <div class="flex space-x-2 mt-3 sm:mt-0">
+                            <a href="{{ route('tasks.show', $task->id) }}"
+                                class="flex items-center text-gray-700 hover:text-gray-900 px-2 py-1 rounded hover:bg-gray-100 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                View
+                            </a>
                             <a href="{{ route('tasks.edit', $task->id) }}"
                                 class="flex items-center text-blue-600 hover:text-blue-800 px-2 py-1 rounded hover:bg-blue-50 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20"

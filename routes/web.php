@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     // Update an existing task
     Route::patch('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     
+    Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
+
     // Delete a task
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
